@@ -9,7 +9,6 @@ router.post(
     "/createoffer/:id",
     fetchuser,
     async (req, res) => {
-        console.log("yoo")
         try {
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
@@ -49,7 +48,7 @@ router.get(
     fetchuser,
     async (req, res) => {
         try {
-            const loanoffer = await loanOffer.find({ state: 1, user:req.user.id });
+            const loanoffer = await loanOffer.find({$or:[{ state: 1, user:req.user.id },{ state: 2, user:req.user.id }]});
             res.json(loanoffer);
         } catch (error) {
             console.error(error.message);

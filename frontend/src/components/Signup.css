@@ -47,7 +47,7 @@ form .user-details .input-box{
   width: calc(100% / 2 - 20px);
   /* width:90px; */
 }
-form .input-box span.details{
+form .input-box label.details{
   display:block;
   font-weight: 500;
   margin-bottom: 5px;

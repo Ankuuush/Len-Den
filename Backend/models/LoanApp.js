@@ -18,20 +18,16 @@ const LoanAppSchema=new Schema({
         required:true
     },
     interest:{
-        type:Number,
-        default:0
+        type:Number
     },
     dateBorrowed:{
-        type:Date,
-        default:Date.now
+        type:Date
     },
     dateRepayed:{
-        type:Date,
-        default:Date.now
+        type:Date
     },
     activeState:{
-        type:Number,
-        default:0
+        type:Number
     }
 });
 module.exports=mongoose.model('loanApp',LoanAppSchema);

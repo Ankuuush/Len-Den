@@ -7,7 +7,7 @@ const Profile = () => {
     
   return (
     <>
-    <button type="button" class="btn btn-dark" onClick={()=>navigate("/")}>Log Out</button>
+    <button type="button" className="btn btn-dark" onClick={()=>navigate("/")}>Log Out</button>
       <div className="card">
         <div className="ds-top" />
         <div className="avatar-holder">
@@ -46,11 +46,11 @@ const Profile = () => {
             <p className="payment">0</p>
           </div>
         </div>
-        <div class="buttons">
-          <div class="action_btn">
+        <div className="buttons">
+          <div className="action_btn">
             <button
               name="submit"
-              class="action_btn submit"
+              className="action_btn submit"
               type="submit"
               value="Save"
               onClick={()=>navigate("/application")}
@@ -59,7 +59,7 @@ const Profile = () => {
             </button>
             <button
               name="submit"
-              class="action_btn cancel"
+              className="action_btn cancel"
               type="submit"
               value="Cancel"
               onClick={()=>navigate("/lendmoney")}

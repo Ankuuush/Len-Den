@@ -8,7 +8,7 @@ var jwt = require('jsonwebtoken');
 
 
 router.post('/login',[
-  body('email').isEmail(),
+  body('email','enter valid email').isEmail(),
   body('password','Password cannot be blank').exists()
 ],async (req,res)=>{
   const errors = validationResult(req);
@@ -18,8 +18,8 @@ router.post('/login',[
    }
   const {email,password}=req.body;
   try {
-    let user=await User.findOne({email:req.body.email})
-    // console.log(user);
+    let user=await User.findOne({email:email})
+    console.log(user);
     if(!user){
       return res.status(400).json({success:success, errors: "Wrong credentials" });
     }
@@ -61,6 +61,11 @@ async(req,res)=>{
     // console.log(user);
     if(user){
       return res.status(400).json({success:success, errors: "Email already exists" });
+    }
+    user=await User.findOne({phone_no:req.body.phone_no})
+    console.log(user);
+    if(user){
+      return res.status(400).json({success:success, errors: "Phone number already exists" });
     }
     var salt =await bcrypt.genSaltSync(10);
     var hash = bcrypt.hashSync(req.body.password, salt);
