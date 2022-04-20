@@ -1,29 +1,70 @@
-PROBLEM:
-Don't you feel that Banks who offer you loans also offers you a lage interest rate. Interest rate on home loans are soaring as high as 12% per annnum.Thus,the middle class family is stuck in the rigmarole of paying debts.So,we at LEN-DEN are here to get you out of this abyss.
+# Getting Started with Create React App
 
-SOLUTION:
-We at LEN-DEN act as bridge that connects people who are looking to help out each other financially .LEN-DEN is your one stop destination if you want to get over with debt consolidation,vehicle and property financing and many more at an afforadable interest rate.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Once,the user Sign Ups he is redirected to his Dashboard wherein he sees the following on display:
-  LEND: Shows the number of times that the user has lent someone principle
-  BORROW: Shows the number of times that the user has borrowed a principle
-  ACTIVE: "YES" if the user has an exisiting application loan, "NIL" otherwise
-  CREDITS: Our own verison of CIBIL SCORE 
-  PAYMENT DUE: Shows the amount that person needs to pay off (if any)
-  APPLY: Whenever a person clicks on this he is redirected to an APPLICATION FORM wherein he fills all the details as per the guidelines of Govt. Of India.
-         He needs to fill his Name as per aadhar and also the PAN and AADHAR number to complete his form which is then sent to a page titled "POTENTIAL BORROWERS"
-  LEND MONEY: If a user is seeking to lend ,he clicks over here only to be redirected to a POTENTIAL BORROWERS page which lists the users who have filled the
-              APPLICATION FORM . User can now see the brief details of all the listed individuals and will click on the "VISIT" button to get all the necessary details                 about the individual
-              We have  also provided the TEXT BUTTON where the LENDER can pitch up his interest rate and see if the BORROWER agrees.
-  LOG OUT: The user is redirected to the WELCOME PAGE.
-  
- Now, if the Lender is interested he can contact the Borrower on either his gmail or contact number that he/she has provided.
- Thus, we have connected people using our platform successfully.
- 
- 
-CHALLENGES WE RAN INTO:
-We had trouble routing a button to a particular page and while using react the styling of different pages clashed with each other thus we had trouble sorting out that part
+## Available Scripts
 
-TECHNOLOGIES WE USED:
+In the project directory, you can run:
 
-MongoDB,Express,React,Node.js
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
