@@ -19,7 +19,7 @@ router.post('/login',[
   const {email,password}=req.body;
   try {
     let user=await User.findOne({email:email})
-    console.log(user);
+    // console.log(user);
     if(!user){
       return res.status(400).json({success:success, errors: "Wrong credentials" });
     }
