@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+.bodySignup{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.containerSignup{
+  max-width: 45em;
+  width: 100%;
+  background-color: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 0.5em;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+.containerSignup .title{
+  font-size: 1.8rem;
+  font-weight: 500;
+  position: relative;
+}
+.containerSignup .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0.25rem;
+  width: 2rem;
+  border-radius: 0.25rem;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+.content form .user-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0.5rem 0 0.6rem 0;
+}
+form .user-details .input-box{
+  margin-bottom: 0.5rem;
+  width: calc(100% / 2 - 1rem);
+  /* width:90px; */
+  /* max-height: 3rem; */
+}
+form .input-box label.details{
+  display:block;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+.user-details .input-box input{
+  height: 2.1rem;
+  width: 100%;
+  outline: none;
+  font-size: 0.8rem;
+  border-radius: 0.25rem;
+  padding-left: 0.75rem;
+  border: 0.1rem solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+  border-color: #9b59b6;
+}
+ form .gender-details .gender-title{
+  font-size: 1rem;
+  font-weight: 500;
+ }
+ form .category{
+   display: flex;
+   width: 40%;
+   margin: 0.25rem 0 ;
+   justify-content: space-between;
+ }
+ form .category label{
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+ }
+ form .category label .dot{
+  height: 0.9rem;
+  width: 0.9rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  background: #d9d9d9;
+  border: 0.25rem solid transparent;
+  transition: all 0.3s ease;
+}
+ #dot-1:checked ~ .category label .one,
+ #dot-2:checked ~ .category label .two,
+ #dot-3:checked ~ .category label .three{
+   background: #9b59b6;
+   border-color: #d9d9d9;
+ }
+ form input[type="radio"]{
+   display: none;
+ }
+ form .button{
+   height: 2.5rem;
+   margin: 1rem 0
+ }
+ form .button input{
+   height: 100%;
+   width: 100%;
+   border-radius: 0.25rem;
+   border: none;
+   color: #fff;
+   font-size: 0.9rem;
+   font-weight: 500;
+   letter-spacing: 0.1rem;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   background: linear-gradient(135deg, #71b7e6, #9b59b6);
+ }
+ form .button input:hover{
+  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+  }
+ @media(max-width: 584px){
+ .containerSignup{
+  max-width: 100%;
+}
+form .user-details .input-box{
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+  form .category{
+    width: 100%;
+  }
+  .content form .user-details{
+    max-height: 15rem;
+    overflow-y: scroll;
+  }
+  .user-details::-webkit-scrollbar{
+    width: 5px;
+  }
+  }
+  @media(max-width: 459px){
+  .containerSignup .content .category{
+    flex-direction: column;
+  }
+}

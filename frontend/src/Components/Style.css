@@ -5,7 +5,7 @@
 }
 
 .context {
-    width: 100%;
+    width: 100vw;
     position: absolute;
     z-index: 1;
 }
