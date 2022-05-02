@@ -1,8 +1,8 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './Components/NavBar';
-import Login from './Components/Login';
-import Signup from './Components/Signup';
+import Login from './Components/Login/Login';
+import Signup from './Components/SignUp/Signup';
 import {
   BrowserRouter as Router,
   Routes,
