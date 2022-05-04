@@ -1,0 +1,79 @@
+.stats {
+    margin-top: 5em;
+    display: flex;
+    justify-content: space-around;
+}
+
+.cardStats {
+    width: 20%;
+    height: 10em;
+    text-align: center;
+    border: 0.1em solid rgb(195, 196, 192);
+    background-color: white;
+    -webkit-box-shadow: 0px 2px 15px 4px rgba(214, 206, 214, 1);
+    -moz-box-shadow: 0px 2px 15px 4px rgba(214, 206, 214, 1);
+    box-shadow: 0px 2px 15px 4px rgba(214, 206, 214, 1);
+    border-radius: 0.5em;
+}
+
+.rupee {
+    margin-top: 5%;
+    width: 40%;
+    height: 40%;
+}
+
+.figure {
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 1%;
+    height: 25%;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.title {
+    margin-top: 0;
+    color: gray;
+    font-size: 1em;
+    width: 100%;
+}
+
+@media only screen and (max-width:600px) {
+    .stats {
+        margin: 0;
+        display: block;
+    }
+
+    .card {
+        margin: 2em auto;
+        width: 20em;
+        height: 20em;
+        text-align: center;
+        border: 0.1em solid rgb(195, 196, 192);
+        background-color: white;
+        -webkit-box-shadow: 0px 2px 15px 4px rgba(214, 206, 214, 1);
+        -moz-box-shadow: 0px 2px 15px 4px rgba(214, 206, 214, 1);
+        box-shadow: 0px 2px 15px 4px rgba(214, 206, 214, 1);
+        border-radius: 0.5em;
+    }
+
+    .rupee {
+        margin-top: 5%;
+        width: 45%;
+        height: 45%;
+    }
+    
+    .figure {
+        font-size: 3.5em;
+        font-weight: bold;
+        margin-top: 1%;
+        height: 25%;
+        width: 100%;
+    }
+    
+    .title {
+        color: gray;
+        font-size: 1.5em;
+        width: 100%;
+    }
+}

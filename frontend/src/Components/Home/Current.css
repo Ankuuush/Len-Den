@@ -1,0 +1,27 @@
+.currentBody{
+    margin-top: 5em;
+    margin-bottom: 3em;
+}
+.card-current-title {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin-bottom: 1em;
+    margin-top: 2em;
+}
+.card-current {
+    margin-top: 0.5em;
+    margin-bottom: 2em;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    border: 0.1em solid rgb(195, 196, 192);
+    background-color: white;
+    border-radius: 0.5em;
+}
+.card-current >p{
+    text-align: center;
+    margin: 0;
+    padding: 1em;
+}
+.card-current-title >p{
+    text-align: center;
+}

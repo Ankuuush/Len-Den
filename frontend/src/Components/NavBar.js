@@ -1,4 +1,5 @@
 import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Nav, Container,Navbar,Button } from 'react-bootstrap';
 const NavBar = () => {
     return (
@@ -7,7 +8,7 @@ const NavBar = () => {
                 <Container>
                     <Navbar.Brand href="#home">Navbar</Navbar.Brand>
                     <Nav className="me-auto">
-                        <Nav.Link href="home">Home</Nav.Link>
+                        <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="apply">Apply Now</Nav.Link>
                         <Nav.Link href="application">Loan Application</Nav.Link>
                         <Nav.Link href="lend">Loan Requests</Nav.Link>
