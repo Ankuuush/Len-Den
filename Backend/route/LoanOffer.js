@@ -49,7 +49,13 @@ router.get(
     async (req, res) => {
         try {
             const loanoffer = await loanOffer.find({$or:[{ state: 1, user:req.user.id },{ state: 2, user:req.user.id }]});
-            res.json(loanoffer);
+            let loanLent=[]
+            for (let index = 0; index < loanoffer.length; index++) {
+                const element = loanoffer[index];
+                const data=await LoanApp.findById(element.loanApp)
+                loanLent.push(data)
+            }
+            res.json(loanLent);
         } catch (error) {
             console.error(error.message);
             res.status(500).send("Internal server error");

@@ -88,19 +88,19 @@ router.delete(
 );
 
 
-// router.get(
-//     "/fetchmyloan",
-//     fetchuser,
-//     async (req, res) => {
-//         try {
-//             const loanapp = await LoanApp.find({ $or:[{activeState: 1, user: req.user.id },{activeState: 2, user: req.user.id }]});
-//             res.json(loanapp);
-//         } catch (error) {
-//             console.error(error.message);
-//             res.status(500).send("Internal server error");
-//         }
-//     }
-// );
+router.get(
+    "/fetchmyloan",
+    fetchuser,
+    async (req, res) => {
+        try {
+            const loanapp = await LoanApp.find({ $or:[{activeState: 1, user: req.user.id },{activeState: 2, user: req.user.id }]});
+            res.json(loanapp);
+        } catch (error) {
+            console.error(error.message);
+            res.status(500).send("Internal server error");
+        }
+    }
+);
 
 router.get(
     "/currentloan/:id",
