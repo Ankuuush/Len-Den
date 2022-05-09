@@ -12,6 +12,7 @@ const HomeState = (props) => {
   const [noBorrowed, setNoBorrowed] = useState();
   const [noLent, setNoLent] = useState();
   const host = "http://localhost:5000";
+  const [currentLoans, setCurrentLoans] = useState([])
 
   const getLoan = async () => {
     const borrowResponse = await fetch(`${host}/api/application/fetchmyloan`, {
@@ -34,8 +35,21 @@ const HomeState = (props) => {
         },
       }
     );
-
+    const currentLoansResponse = await fetch(
+      `${host}/api/application/fetchcurrloan`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token":
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjI1ODBhN2ZiNjY1NzYxNzdjMjVkYTMxIn0sImlhdCI6MTY1MTg1NjI5MH0.-QbEl_9Mi4KdFgCBk75rS29CnzM7uIdhBmJyQDnzdxs",
+        },
+      }
+    );
+    const currentLoansInit=await currentLoansResponse.json();
+    setCurrentLoans(currentLoansInit);
     const borrowJson = await borrowResponse.json();
+    console.log(borrowJson)
     setBorrowed(borrowJson);
     const lentJson = await lentResponse.json();
     setLent(lentJson);
@@ -44,7 +58,7 @@ const HomeState = (props) => {
 
   const setLoan = (borrowJson, lentJson) => {
     let amountBorrowed = 0;
-    let countB=0;
+    let countB = 0;
     let totalCount = 0;
     let ontime = 0;
 
@@ -71,19 +85,28 @@ const HomeState = (props) => {
     setDefaulted(defaultedPercent);
 
     let amountLent = 0;
-    let countL=0;
+    let countL = 0;
     for (let index = 0; index < lentJson.length; index++) {
       const element = lentJson[index];
       amountLent += element.amount;
       countL++;
     }
     setTotalLent(amountLent);
-    setNoLent(countL)
+    setNoLent(countL);
   };
 
   return (
     <HomeContext.Provider
-      value={{ getLoan, totalBorrowed, totalLent, onTime, defaulted,noBorrowed,noLent}}
+      value={{
+        getLoan,
+        totalBorrowed,
+        totalLent,
+        onTime,
+        defaulted,
+        noBorrowed,
+        noLent,
+        currentLoans
+      }}
     >
       {props.children}
     </HomeContext.Provider>

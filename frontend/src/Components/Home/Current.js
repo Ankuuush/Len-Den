@@ -1,6 +1,32 @@
 import React from 'react'
 import './Current.css'
-const Current = () => {
+import CurrentItem from './CurrentItem'
+const Current = (props) => {
+    const {currentLoans}=props
+    // console.log(currentLoans)
+    const CI=[
+        {
+            Type:"Home Loan",
+            Amount:130230,
+            Interest:5,
+            DateBorrowed:"25-02-2019",
+            _id:1
+        },
+        {
+            Type:"Education Loan",
+            Amount:130230,
+            Interest:5,
+            DateBorrowed:"25-02-2019",
+            _id:2
+        },
+        {
+            Type:"Faxx Loan",
+            Amount:130230,
+            Interest:5,
+            DateBorrowed:"25-02-2019",
+            _id:3
+        }
+    ]
     return (
         <div className="currentBody">
             <h1> Current Loans</h1>
@@ -11,24 +37,9 @@ const Current = () => {
                     <p>Interest</p>
                     <p>Date Borrowed</p>
                 </div>
-                <div className="card-current">
-                    <p>Education Loan</p>
-                    <p>Rs. 100000</p>
-                    <p>5%</p>
-                    <p>11/03/2020</p>
-                </div>
-                <div className="card-current">
-                    <p>Education Loan</p>
-                    <p>Rs. 100000</p>
-                    <p>5%</p>
-                    <p>11/03/2020</p>
-                </div>
-                <div className="card-current">
-                    <p>Education Loan</p>
-                    <p>Rs. 100000</p>
-                    <p>5%</p>
-                    <p>11/03/2020</p>
-                </div>
+                {currentLoans.map((item)=>{
+                    return <CurrentItem item={item} key={item._id}/>
+                })}
             </div>
         </div>
     )
