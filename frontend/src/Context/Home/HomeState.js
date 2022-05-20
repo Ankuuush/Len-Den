@@ -5,14 +5,43 @@ import HomeContext from "./HomeContext";
 const HomeState = (props) => {
   const [borrowed, setBorrowed] = useState([]);
   const [lent, setLent] = useState([]);
-  const [totalBorrowed, setTotalBorrowed] = useState();
-  const [totalLent, setTotalLent] = useState();
-  const [onTime, setOnTime] = useState();
-  const [defaulted, setDefaulted] = useState();
-  const [noBorrowed, setNoBorrowed] = useState();
-  const [noLent, setNoLent] = useState();
+  const [totalBorrowed, setTotalBorrowed] = useState("");
+  const [totalLent, setTotalLent] = useState("");
+  const [onTime, setOnTime] = useState('');
+  const [defaulted, setDefaulted] = useState('');
+  const [noBorrowed, setNoBorrowed] = useState('');
+  const [noLent, setNoLent] = useState('');
   const host = "http://localhost:5000";
   const [currentLoans, setCurrentLoans] = useState([])
+  const [userDetails, setUserDetails] = useState("")
+  const [lenderDetails, setLenderDetails] = useState("")
+
+  const getUserDetails= async()=>{
+    const response = await fetch(`${host}/api/auth/userDetails`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token":
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjI1MTg2MTUyMDE5NTZkYzQ5Y2VlZTEyIn0sImlhdCI6MTY0OTUwOTkwOX0.v3vDVeEvSoximC-CF7j8GkBvV81TAW-dv8NeQcTZwM8",
+      },
+    });
+    const json= await response.json();
+    console.log(json)
+    setUserDetails(json);
+  }
+
+  const getLenderDetails= async(id)=>{
+    const response = await fetch(`${host}/api/auth/lenderDetails/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token":
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjI1MTg2MTUyMDE5NTZkYzQ5Y2VlZTEyIn0sImlhdCI6MTY0OTUwOTkwOX0.v3vDVeEvSoximC-CF7j8GkBvV81TAW-dv8NeQcTZwM8",
+      },
+    });
+    const json= await response.json();
+    setLenderDetails(json);
+  }
 
   const getLoan = async () => {
     const borrowResponse = await fetch(`${host}/api/application/fetchmyloan`, {
@@ -105,7 +134,11 @@ const HomeState = (props) => {
         defaulted,
         noBorrowed,
         noLent,
-        currentLoans
+        currentLoans,
+        getUserDetails,
+        userDetails,
+        getLenderDetails,
+        lenderDetails
       }}
     >
       {props.children}

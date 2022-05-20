@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-lender-details {
+    margin-top: 3em;
+    height: 10em;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+.lender-bio ,.contract-details{
+    margin-top: 3em;
+    flex: 80%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    height: 100%;
+    margin-bottom: 0;
+    box-sizing: border-box;
+    margin-left: 3em;
+    border: 0.15em solid black;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+.lender-bioItem,.contract-details-item{
+    margin-bottom: 0;;
+}
+
+@media only screen and (max-width:1000px) {
+    .container-lender-details {
+        /* width: 100vw; */
+        margin: 0;
+        height: 38em;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    .lender-bio, .contract-details {
+        font-size: 1em;
+        margin-left: 0;
+        margin-top: 1em;
+        flex: 100%;
+        align-self: flex-start;
+    }
+
+
+}

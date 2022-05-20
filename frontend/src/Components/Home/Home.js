@@ -6,13 +6,14 @@ import HomeContext from '../../Context/Home/HomeContext'
 
 const Home = () => {
   const homecontext = useContext(HomeContext)
-    const {getLoan,totalBorrowed,totalLent,onTime,defaulted,noBorrowed,noLent,currentLoans}=homecontext
+    const {getLoan,totalBorrowed,totalLent,onTime,defaulted,noBorrowed,noLent,currentLoans,getUserDetails,userDetails}=homecontext
     useEffect( () => {
       getLoan();
+      getUserDetails();
     }, [])
   return (
     <div style={{marginLeft:"5em",marginRight:"5em"}}>
-    <Profile/>
+    <Profile userDetails={userDetails}/>
     <Stats totalBorrowed={totalBorrowed} totalLent={totalLent} onTime={onTime} defaulted={defaulted} noBorrowed={noBorrowed} noLent={noLent} />
     <Current currentLoans={currentLoans}/>
     </div>

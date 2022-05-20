@@ -9,6 +9,7 @@ import {
 import Home from './Components/Home/Home';
 import NavBar from './Components/NavBar';
 import HomeState from './Context/Home/HomeState';
+import CurrentItemDetails from './Components/Home/CurrentItemDetails';
 function App() {
   return (
     <HomeState>
@@ -17,6 +18,7 @@ function App() {
         <Route path='/' element={<><NavBar/><Home/></>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
+        <Route path='/currentLoan' element={<CurrentItemDetails/>}/>
       </Routes>
     </Router>
     </HomeState>

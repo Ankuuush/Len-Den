@@ -17,10 +17,12 @@ img.bio {
     border: 0.25em solid black;
 }
 
-p.bio {
+div.bio {
     flex: 80%;
-    align-self: flex-end;
-    height: 5em;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    height: 100%;
     margin-bottom: 0;
     box-sizing: border-box;
     margin-left: 3em;
@@ -28,7 +30,9 @@ p.bio {
     padding: 1em;
     border-radius: 1em;
 }
-
+.bioItem{
+    margin-bottom: 0;;
+}
 
 @media only screen and (max-width:1000px) {
     .containerTest {
@@ -51,7 +55,7 @@ p.bio {
         margin-bottom: 0;
     }
 
-    p.bio {
+    div.bio {
         font-size: 1em;
         margin-left: 0;
         margin-top: 1em;
