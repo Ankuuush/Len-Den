@@ -20,6 +20,9 @@ const LoanAppSchema=new Schema({
     interest:{
         type:Number
     },
+    currentSalary:{
+        type:Number
+    },
     dateBorrowed:{
         type:Date
     },
@@ -28,6 +31,18 @@ const LoanAppSchema=new Schema({
     },
     activeState:{
         type:Number
+    },
+    guarantor:{
+        type:String,
+    },
+    guarantorPhone:{
+        type:Number
+    },
+    guarantorAddress:{
+        type:String
+    },
+    guarantorRelation:{
+        type:String
     }
 });
 module.exports=mongoose.model('loanApp',LoanAppSchema);

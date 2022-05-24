@@ -4,17 +4,18 @@
     box-sizing: border-box;
 }
 
-.container-lender-details {
+/* .container-lender-details {
     margin-top: 3em;
     height: 10em;
     display: flex;
     flex-wrap: wrap;
-}
+} */
 
 
 
 .lender-bio ,.contract-details{
     margin-top: 3em;
+    height: 10em;
     flex: 80%;
     display: grid;
     grid-template-columns: auto auto auto;
@@ -29,7 +30,8 @@
 }
 
 .lender-bioItem,.contract-details-item{
-    margin-bottom: 0;;
+    margin-bottom: 0;
+    padding: 1em;
 }
 
 @media only screen and (max-width:1000px) {

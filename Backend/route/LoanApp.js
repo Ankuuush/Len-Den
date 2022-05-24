@@ -11,7 +11,7 @@ router.post(
     fetchuser,
     async (req, res) => {
         try {
-            const { loanType, amount, period } = req.body;
+            const { loanType, amount, period, interest,currentSalary,guarantor,guarantorPhone,guarantorAddress,guarantorRelation } = req.body;
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
                 return res.status(400).json({ errors: errors.array() });
@@ -20,7 +20,13 @@ router.post(
                 user: req.user.id,
                 loanType: loanType,
                 amount: amount,
-                period: period
+                period: period,
+                interest: interest,
+                currentSalary:currentSalary,
+                guarantor:guarantor,
+                guarantorPhone:guarantorPhone,
+                guarantorAddress:guarantorAddress,
+                guarantorRelation:guarantorRelation
             });
             const saveLoanApp = await loanapp.save();
             res.json(saveLoanApp);
@@ -36,7 +42,7 @@ router.get(
     fetchuser,
     async (req, res) => {
         try {
-            const loanapp = await LoanApp.find({ activeState: 0 });
+            const loanapp = await LoanApp.find({ activeState: 0, user: req.user.id });
             res.json(loanapp);
         } catch (error) {
             console.error(error.message);
@@ -50,7 +56,7 @@ router.get(
     fetchuser,
     async (req, res) => {
         try {
-            const loanapp = await LoanApp.find({ activeState: 1 });
+            const loanapp = await LoanApp.find({ activeState: 1, user: req.user.id });
             res.json(loanapp);
         } catch (error) {
             console.error(error.message);
@@ -64,7 +70,7 @@ router.get(
     fetchuser,
     async (req, res) => {
         try {
-            const loanapp = await LoanApp.find({ activeState: 2 });
+            const loanapp = await LoanApp.find({ activeState: 2, user: req.user.id });
             res.json(loanapp);
         } catch (error) {
             console.error(error.message);

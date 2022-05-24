@@ -6,6 +6,7 @@ const { body, validationResult } = require('express-validator');
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 const fetchuser = require('../middleware/fetchuser');
+const LoanOffer = require('../models/LoanOffer');
 
 router.post('/login',[
   body('email','enter valid email').isEmail(),
@@ -122,7 +123,8 @@ router.get("/lenderDetails/:id",fetchuser,async (req,res)=>{
       return res.status(400).json({success:success, errors: errors.array() });
     }
     try {
-      let user=await User.findOne({_id:req.params.id},'name email phone_no profession address')
+      let loanoffer=await LoanOffer.find({loanApp:req.params.id,state:1})
+      let user=await User.findOne({_id:loanoffer[0].user},'name email phone_no profession address')
       success=true;
       res.json(user);
       

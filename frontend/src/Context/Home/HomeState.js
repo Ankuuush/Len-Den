@@ -7,16 +7,18 @@ const HomeState = (props) => {
   const [lent, setLent] = useState([]);
   const [totalBorrowed, setTotalBorrowed] = useState("");
   const [totalLent, setTotalLent] = useState("");
-  const [onTime, setOnTime] = useState('');
-  const [defaulted, setDefaulted] = useState('');
-  const [noBorrowed, setNoBorrowed] = useState('');
-  const [noLent, setNoLent] = useState('');
+  const [onTime, setOnTime] = useState("");
+  const [defaulted, setDefaulted] = useState("");
+  const [noBorrowed, setNoBorrowed] = useState("");
+  const [noLent, setNoLent] = useState("");
+  const [currentLoans, setCurrentLoans] = useState([]);
+  const [userDetails, setUserDetails] = useState("");
+  const [lenderDetails, setLenderDetails] = useState("");
+  const [currLoanItem, setCurrLoanItem] = useState([])
+  
   const host = "http://localhost:5000";
-  const [currentLoans, setCurrentLoans] = useState([])
-  const [userDetails, setUserDetails] = useState("")
-  const [lenderDetails, setLenderDetails] = useState("")
-
-  const getUserDetails= async()=>{
+  // User Details
+  const getUserDetails = async () => {
     const response = await fetch(`${host}/api/auth/userDetails`, {
       method: "GET",
       headers: {
@@ -25,12 +27,13 @@ const HomeState = (props) => {
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjI1MTg2MTUyMDE5NTZkYzQ5Y2VlZTEyIn0sImlhdCI6MTY0OTUwOTkwOX0.v3vDVeEvSoximC-CF7j8GkBvV81TAW-dv8NeQcTZwM8",
       },
     });
-    const json= await response.json();
-    console.log(json)
+    const json = await response.json();
+    console.log(json);
     setUserDetails(json);
-  }
+  };
 
-  const getLenderDetails= async(id)=>{
+  //Lender Details
+  const getLenderDetails = async (id) => {
     const response = await fetch(`${host}/api/auth/lenderDetails/${id}`, {
       method: "GET",
       headers: {
@@ -39,9 +42,9 @@ const HomeState = (props) => {
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjI1MTg2MTUyMDE5NTZkYzQ5Y2VlZTEyIn0sImlhdCI6MTY0OTUwOTkwOX0.v3vDVeEvSoximC-CF7j8GkBvV81TAW-dv8NeQcTZwM8",
       },
     });
-    const json= await response.json();
+    const json = await response.json();
     setLenderDetails(json);
-  }
+  };
 
   const getLoan = async () => {
     const borrowResponse = await fetch(`${host}/api/application/fetchmyloan`, {
@@ -75,10 +78,9 @@ const HomeState = (props) => {
         },
       }
     );
-    const currentLoansInit=await currentLoansResponse.json();
+    const currentLoansInit = await currentLoansResponse.json();
     setCurrentLoans(currentLoansInit);
     const borrowJson = await borrowResponse.json();
-    console.log(borrowJson)
     setBorrowed(borrowJson);
     const lentJson = await lentResponse.json();
     setLent(lentJson);
@@ -124,6 +126,12 @@ const HomeState = (props) => {
     setNoLent(countL);
   };
 
+  const getCurrentItem = (id) => {
+    const item=currentLoans.filter((cl)=> cl._id===id)
+    console.log(item)
+    setCurrLoanItem(item[0]);
+  };
+
   return (
     <HomeContext.Provider
       value={{
@@ -138,7 +146,9 @@ const HomeState = (props) => {
         getUserDetails,
         userDetails,
         getLenderDetails,
-        lenderDetails
+        lenderDetails,
+        getCurrentItem,
+        currLoanItem
       }}
     >
       {props.children}

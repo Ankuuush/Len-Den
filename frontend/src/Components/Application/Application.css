@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+  }
+
+.application-container,.terms-conditions{
+    position: relative;
+    margin: 5em 10em;
+    background-color: #fff;
+    padding: 1.5rem 2rem;
+    border-radius: 0.5em;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+
+.contents{
+    display: flex;
+    flex-direction: column;
+}
+
+.first-box,.second-box{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+h5{
+    margin-top: 1.5em;
+}
+.input-box-application{
+    margin-top: 1em;
+}
+
+.form-button{
+    position: absolute;
+    right: 2em;
+    bottom: 1em;
+    display:flex;
+}
+.apply-button{
+    margin: 0 1em;
+}
+
+.input-button{
+    padding: 0.3em;
+    border-radius: 0.5em ;
+    background-color: cornflowerblue;
+}

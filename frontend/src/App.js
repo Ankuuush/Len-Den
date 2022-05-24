@@ -10,6 +10,7 @@ import Home from './Components/Home/Home';
 import NavBar from './Components/NavBar';
 import HomeState from './Context/Home/HomeState';
 import CurrentItemDetails from './Components/Home/CurrentItemDetails';
+import Application from './Components/Application/Application';
 function App() {
   return (
     <HomeState>
@@ -19,6 +20,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/currentLoan' element={<CurrentItemDetails/>}/>
+        <Route path='/apply' element={<><NavBar/><Application/></>}/>
       </Routes>
     </Router>
     </HomeState>
