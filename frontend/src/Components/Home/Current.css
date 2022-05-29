@@ -16,6 +16,7 @@
     border: 0.1em solid rgb(195, 196, 192);
     background-color: white;
     border-radius: 0.5em;
+    cursor: pointer;
 }
 .card-current >p{
     text-align: center;

@@ -106,7 +106,7 @@ router.get("/userDetails",fetchuser,async (req,res)=>{
     }
     try {
       let user=await User.findOne({_id:req.user.id},'name email phone_no profession address')
-      success=true;
+      
       res.json(user);
       
     } catch (error) {
@@ -116,14 +116,14 @@ router.get("/userDetails",fetchuser,async (req,res)=>{
 })
 
 
-router.get("/lenderDetails/:id",fetchuser,async (req,res)=>{
+router.post("/lenderDetails/:id",fetchuser,async (req,res)=>{
   const errors = validationResult(req);
    var success=false;
     if (!errors.isEmpty()) {
       return res.status(400).json({success:success, errors: errors.array() });
     }
     try {
-      let loanoffer=await LoanOffer.find({loanApp:req.params.id,state:1})
+      let loanoffer=await LoanOffer.find({loanApp:req.params.id,state:req.body.state})
       let user=await User.findOne({_id:loanoffer[0].user},'name email phone_no profession address')
       success=true;
       res.json(user);

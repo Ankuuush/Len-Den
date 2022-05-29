@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import './Application.css'
-const Application = () => {
+import './Form.css'
+const Form = () => {
     const [appDetails, setAppDetails] = useState({ loanType: "", Amount: "", Period: "", currentSalary: "", guarantor: "", Relationship: "", guarantorPhone: "", guarantorAddress: "" })
 
     const onChange = (e) => {
@@ -138,4 +138,4 @@ const Application = () => {
     );
 };
 
-export default Application;
+export default Form;

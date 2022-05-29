@@ -1,0 +1,23 @@
+.card-currentApp{
+    margin-top: 0.5em;
+    margin-bottom: 2em;
+    border: 0.1em solid rgb(195, 196, 192);
+    background-color: white;
+    border-radius: 0.5em;
+    cursor: pointer;
+    padding: 1.5em;
+}
+
+.section{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.currentApp-p{
+    margin: 0;
+}
+
+.guarantor-details{
+    margin-top: 0.8em;
+    margin-bottom: 0.4em;
+}

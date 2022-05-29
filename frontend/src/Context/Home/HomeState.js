@@ -28,19 +28,19 @@ const HomeState = (props) => {
       },
     });
     const json = await response.json();
-    console.log(json);
     setUserDetails(json);
   };
 
   //Lender Details
-  const getLenderDetails = async (id) => {
+  const getLenderDetails = async (id,state) => {
     const response = await fetch(`${host}/api/auth/lenderDetails/${id}`, {
-      method: "GET",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         "auth-token":
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjI1MTg2MTUyMDE5NTZkYzQ5Y2VlZTEyIn0sImlhdCI6MTY0OTUwOTkwOX0.v3vDVeEvSoximC-CF7j8GkBvV81TAW-dv8NeQcTZwM8",
       },
+      body:JSON.stringify({state:state})
     });
     const json = await response.json();
     setLenderDetails(json);
@@ -128,7 +128,6 @@ const HomeState = (props) => {
 
   const getCurrentItem = (id) => {
     const item=currentLoans.filter((cl)=> cl._id===id)
-    console.log(item)
     setCurrLoanItem(item[0]);
   };
 

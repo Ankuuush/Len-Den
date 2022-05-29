@@ -10,7 +10,9 @@ import Home from './Components/Home/Home';
 import NavBar from './Components/NavBar';
 import HomeState from './Context/Home/HomeState';
 import CurrentItemDetails from './Components/Home/CurrentItemDetails';
-import Application from './Components/Application/Application';
+import Form from './Components/Application Form/Form';
+import MyApplications from './Components/MyApplications/MyApplications';
+import RepayedLoanDetails from './Components/MyApplications/RepayedLoanDetails';
 function App() {
   return (
     <HomeState>
@@ -19,8 +21,10 @@ function App() {
         <Route path='/' element={<><NavBar/><Home/></>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
-        <Route path='/currentLoan' element={<CurrentItemDetails/>}/>
-        <Route path='/apply' element={<><NavBar/><Application/></>}/>
+        <Route path='/currentLoan' element={<><NavBar/><CurrentItemDetails/></>}/>
+        <Route path='/apply' element={<><NavBar/><Form/></>}/>
+        <Route path='/applications' element={<><NavBar/><MyApplications/></>}/>
+        <Route path='/repayeddetails' element={<><NavBar/><RepayedLoanDetails/></>}/>
       </Routes>
     </Router>
     </HomeState>

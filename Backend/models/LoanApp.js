@@ -30,7 +30,8 @@ const LoanAppSchema=new Schema({
         type:Date
     },
     activeState:{
-        type:Number
+        type:Number,
+        default:0
     },
     guarantor:{
         type:String,

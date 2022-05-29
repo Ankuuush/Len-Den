@@ -8,7 +8,7 @@ const CurrentItem = (props) => {
     const {getLenderDetails,getCurrentItem}=homeContext;
     const navigate=useNavigate();
     const handleClick=()=>{
-      getLenderDetails(item._id)
+      getLenderDetails(item._id,1)
       getCurrentItem(item._id);
       navigate('/currentLoan');
     }

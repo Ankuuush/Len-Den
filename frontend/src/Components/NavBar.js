@@ -11,7 +11,7 @@ const NavBar = () => {
                     <Nav className="me-auto">
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
                         <Nav.Link as={Link} to="/apply">Apply Now</Nav.Link>
-                        <Nav.Link as={Link} to="/application">Loan Application</Nav.Link>
+                        <Nav.Link as={Link} to="/applications">My Applications</Nav.Link>
                         <Nav.Link as={Link} to="/lend">Loan Requests</Nav.Link>
                     </Nav>
                     <Button variant="outline-primary">Logout</Button>
