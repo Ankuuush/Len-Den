@@ -1,18 +1,24 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import HomeContext from "../../Context/Home/HomeContext";
-import "./ApplicationItem.css";
+import HomeContext from "../Context/Home/HomeContext";
+import "./LoanItem.css";
 
-const ApplicationItem = (props) => {
+const LoanItem = (props) => {
   const navigate = useNavigate();
   const { item, check } = props;
   const homeContext = useContext(HomeContext);
   const { getLenderDetails, getCurrentItem } = homeContext;
-
+  
   const handleClick = () => {
-    if (check) {
+    if(check==0){
+      navigate('/offers',{state:item})
+    }
+    else if (check===1) {
       getLenderDetails(item._id, 2);
       navigate("/repayeddetails",{state:item});
+    }
+    else if(check===2){
+      navigate('/borrowerDetails',{state:item});
     }
   };
   return (
@@ -34,4 +40,4 @@ const ApplicationItem = (props) => {
   );
 };
 
-export default ApplicationItem;
+export default LoanItem;

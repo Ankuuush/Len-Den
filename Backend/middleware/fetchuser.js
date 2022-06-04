@@ -6,7 +6,7 @@ const fetchuser = (req, res, next) => {
   if (!token)
     res
       .status(401)
-      .json.send({ error: "Please authenticate using a valid token" });
+      .send({ error: "Please authenticate using a valid token" });
   try {
     const data = jwt.verify(token, process.env.SECRET_KEY);
     req.user = data.user;

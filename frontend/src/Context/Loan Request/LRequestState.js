@@ -1,8 +1,8 @@
-import React, { useState } from "react";
 import moment from "moment";
-import HomeContext from "./HomeContext";
+import React, { useState } from "react";
+import LRequestContext from "./LRequestContext";
 
-const HomeState = (props) => {
+const LRequestState = (props) => {
   const [borrowed, setBorrowed] = useState([]);
   const [lent, setLent] = useState([]);
   const [totalBorrowed, setTotalBorrowed] = useState("");
@@ -17,9 +17,9 @@ const HomeState = (props) => {
   const [currLoanItem, setCurrLoanItem] = useState([]);
 
   const host = "http://localhost:5000";
-  // User Details
-  const getUserDetails = async () => {
-    const response = await fetch(`${host}/api/auth/userDetails`, {
+
+  const getUserDetails = async (id) => {
+    const response = await fetch(`${host}/api/auth/userDetails/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -46,18 +46,21 @@ const HomeState = (props) => {
     setLenderDetails(json);
   };
 
-  const getLoan = async () => {
-    const borrowResponse = await fetch(`${host}/api/application/fetchmyloan`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjI1MTg2MTUyMDE5NTZkYzQ5Y2VlZTEyIn0sImlhdCI6MTY0OTUwOTkwOX0.v3vDVeEvSoximC-CF7j8GkBvV81TAW-dv8NeQcTZwM8",
-      },
-    });
+  const getLoan = async (id) => {
+    const borrowResponse = await fetch(
+      `${host}/api/application/fetchmyloan/${id}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token":
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjI1MTg2MTUyMDE5NTZkYzQ5Y2VlZTEyIn0sImlhdCI6MTY0OTUwOTkwOX0.v3vDVeEvSoximC-CF7j8GkBvV81TAW-dv8NeQcTZwM8",
+        },
+      }
+    );
 
     const lentResponse = await fetch(
-      `${host}/api/loanoffer/fetchacceptedoffer`,
+      `${host}/api/loanoffer/fetchacceptedoffer/${id}`,
       {
         method: "GET",
         headers: {
@@ -68,7 +71,7 @@ const HomeState = (props) => {
       }
     );
     const currentLoansResponse = await fetch(
-      `${host}/api/application/fetchcurrloan`,
+      `${host}/api/application/fetchcurrloan/${id}`,
       {
         method: "GET",
         headers: {
@@ -132,9 +135,8 @@ const HomeState = (props) => {
     const item = currentLoans.filter((cl) => cl._id === id);
     setCurrLoanItem(item[0]);
   };
-
   return (
-    <HomeContext.Provider
+    <LRequestContext.Provider
       value={{
         getLoan,
         totalBorrowed,
@@ -153,8 +155,8 @@ const HomeState = (props) => {
       }}
     >
       {props.children}
-    </HomeContext.Provider>
+    </LRequestContext.Provider>
   );
 };
 
-export default HomeState;
+export default LRequestState;

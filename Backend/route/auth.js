@@ -7,6 +7,7 @@ var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 const fetchuser = require('../middleware/fetchuser');
 const LoanOffer = require('../models/LoanOffer');
+const LoanApp = require("../models/LoanApp");
 
 router.post('/login',[
   body('email','enter valid email').isEmail(),
@@ -106,6 +107,24 @@ router.get("/userDetails",fetchuser,async (req,res)=>{
     }
     try {
       let user=await User.findOne({_id:req.user.id},'name email phone_no profession address')
+      
+      res.json(user);
+      
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send("Internal server error occured");
+    }
+})
+
+router.get("/userDetails/:id",fetchuser,async (req,res)=>{
+  const errors = validationResult(req);
+   var success=false;
+    if (!errors.isEmpty()) {
+      return res.status(400).json({success:success, errors: errors.array() });
+    }
+    try {
+      let userID=await LoanApp.find({_id:req.params.id},{user:1})
+      let user=await User.findOne({_id:userID[0].user},'name email phone_no profession address')
       
       res.json(user);
       

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ApplicationItem from "./ApplicationItem";
+import LoanItem from "../LoanItem";
 import "./MyApplications.css";
 const MyApplications = () => {
     const [current, setCurrent] = useState([])
@@ -21,7 +21,7 @@ const MyApplications = () => {
         const json = await repayedResponse.json();
         setRepayed(json);
 
-        const currentResponse = await fetch('http://localhost:5000/api/application/fetchcurrapp', {
+        const currentResponse = await fetch('http://localhost:5000/api/application/fetchmycurrapp', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -49,9 +49,9 @@ const MyApplications = () => {
             </div>
             <div className="items-container">
                 {toggleApplication ? repayed.map((repayedItem) =>
-                    <ApplicationItem item={repayedItem} key={repayedItem._id} check={true} />) :
+                    <LoanItem item={repayedItem} key={repayedItem._id} check={1} />) :
                     current.map((currentItem) =>
-                        <ApplicationItem item={currentItem} key={currentItem._id} check={false} />)}
+                        <LoanItem item={currentItem} key={currentItem._id} check={0} />)}
             </div>
         </div>
     );
